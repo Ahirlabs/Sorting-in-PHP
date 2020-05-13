@@ -1,24 +1,27 @@
 <?php
-
-
+/*
+Sorting Name :  Heap Sort
+Original Algorithm Created by: J. W. J. Williams in 1964.
+Recreated Algoritm Author : Er. Arvind Ahir
+Language : PHP
+*/
+// Display Function
 function display($array){
-      $size = count((array)$array);   
-   
-   $message = "";
-   for($i=0;$i<$size;$i++){
-      $message .= $array[$i];
-      $message .= ($size==$i+1)? ".": ",";
-   }
-   return $message;
+	$size = count((array)$array);
+	$message = "";
+	for($i=0;$i<$size;$i++){
+		$message .= $array[$i];	
+		$message .= ($size==$i+1)? ".": ",";
+	}
+	return $message;
 }
-
-
+// Swap Function
 function swap(&$array,$left,$right){
    $temp = $array[$left];
    $array[$left] = $array[$right];
    $array[$right] = $temp;  
 }
-
+// Heapify Function
 function Heapify(&$input,$n,$i){
    $largest = $i;
    $l = $i + 1;
@@ -34,7 +37,7 @@ function Heapify(&$input,$n,$i){
       Heapify($input, $n, $largest);
    }
 }
-
+//Sort Heap
 function SortHeap($array){
    $size = count((array)$array);
    for ($i = $size - 1; $i >= 0; $i--){
@@ -43,14 +46,11 @@ function SortHeap($array){
    for ($j = $size - 1; $j >= 0; $j--){
       $left = 0;
       $right= $j;
- 
       swap($array,$left,$right);      
       Heapify($array, $j, 0);
    }
    return $array;
 }
-
-
 
 $array = [34,304,302,745,91,5,764,200,12,11];
 echo "<p>".display($array)."</p>";
