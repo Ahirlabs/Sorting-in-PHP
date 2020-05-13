@@ -56,4 +56,5 @@ $array = [34,304,302,745,91,5,764,200,12,11];
 echo "<p>".display($array)."</p>";
 $sort_array = SortHeap($array);
 echo "<p>".display($sort_array)."</p>";
+
 ?>
