@@ -1,50 +1,11 @@
 <?php
 /*
-//Selection Sort
-#include<iostream.h>
-#include<conio.h>
-// Display For Array
-void display(int number[],int size){
-   for(int i=0;i<size;i++){
-      cout<<" "<<number[i];
-      (size==i+1)? cout<<".": cout<<",";
-   }
-}
-//Selection Sort
-void selection_sort(int array[],int size){
-   for(int i=0;i<size;i++){
-      for(int j=i+1;j<size;j++){
-         if(array[i]>array[j]){
-            int temp = array[i];
-            array[i] = array[j];
-            array[j] = temp;
-         }
-      }
-   }
-}
-
-void main(){
-   clrscr();
-   int size = 8;
-   int array[10];
-   array[0] = 34;
-   array[1] = 304;
-   array[2] = 302;
-   array[3] = 745;
-   array[4] = 91;
-   array[5] = 5;
-   array[6] = 764;
-   array[7] = 200;
-   cout<<"\n Before Sorting \n";
-   display(array,size);
-   cout<<"\n After Sorting \n";
-   //Sort
-   selection_sort(array,size);
-   display(array,size);
-   getch();
-}
+Sorting Name : Selection Sort
+Original Algorithm Created by: (Name Not Found)
+Recreated Algoritm Author : Er. Arvind Ahir
+Language : PHP
 */
-
+// Display Function
 function display($array){
    $size = count($array);
    $message = "";
@@ -54,36 +15,24 @@ function display($array){
    }
    return $message;
 }
-function display_num($array,$temp_a,$temp_b){
-   $size = count($array);
-   $message = "<p>";
-   for($i=0;$i<$size;$i++){
-      $message .= ($array[$i]==$temp_a || $array[$i]==$temp_b)?"<strong>$array[$i]</strong>":$array[$i];
-      $message .= ($size==$i+1)? ".": ",";
-   }
-   $message .="</p>";
-   return $message;
-}
-
+// Selection Sort
 function selection_sort($array){
    $size = count($array);
-   $message = "";
    for($i=0;$i<$size;$i++){
       for($j=$i+1;$j<$size;$j++){
          if($array[$i]>$array[$j]){
             $temp_a = $array[$i];
             $temp_b = $array[$j];
-            $message .= display_num($array,$temp_a,$temp_b);
+            //Swap 
             $array[$j] = $temp_a;
             $array[$i] = $temp_b;
          }
       }
    }
-   return array('display' => $message,'array' =>$array);
+   return $array;
 }
 $array = [34,304, 302,745,91,5,764,200];
 echo "<p>".display($array)."</p>";
 $sort_array = selection_sort($array);
-echo "<div> ".$sort_array['display']."</div> ";
-echo "<p>".display($sort_array['array'])."</p>";
-
+echo "<p>".display($sort_array)."</p>";
+?>
